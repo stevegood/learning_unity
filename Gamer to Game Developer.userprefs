@@ -1,0 +1,21 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js">
+    <Files>
+      <File FileName="Assets\Scripts\CameraScript.cs" Line="21" Column="4" />
+      <File FileName="Assets\Scripts\BlasterScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\FireBlaster.cs" Line="30" Column="82" />
+      <File FileName="Assets\Scripts\MultiplayerScript.cs" Line="15" Column="43" />
+      <File FileName="Assets\Scripts\SpawnScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" Line="41" Column="66" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" Line="49" Column="5" />
+      <File FileName="Assets\Scripts\MovementUpdate.cs" Line="28" Column="76" />
+      <File FileName="Assets\Scripts\CursorControl.cs" Line="26" Column="63" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
