@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{7193D86B-5487-003D-343C-59D6888852B5}</ProjectGuid>
+	<ProjectGuid>{3DBF6704-F893-210C-4FD5-E5B204F518F4}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,20 +46,30 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AssignHealth.cs" />
      <Compile Include="Assets\Scripts\BlasterScript.cs" />
      <Compile Include="Assets\Scripts\CameraScript.cs" />
+     <Compile Include="Assets\Scripts\CombatWindow.cs" />
+     <Compile Include="Assets\Scripts\CommunicationWindow.cs" />
+     <Compile Include="Assets\Scripts\Crosshair.cs" />
      <Compile Include="Assets\Scripts\CursorControl.cs" />
      <Compile Include="Assets\Scripts\FireBlaster.cs" />
+     <Compile Include="Assets\Scripts\HealthAndDamage.cs" />
      <Compile Include="Assets\Scripts\MovementUpdate.cs" />
      <Compile Include="Assets\Scripts\MultiplayerScript.cs" />
+     <Compile Include="Assets\Scripts\PlayerDataClass.cs" />
+     <Compile Include="Assets\Scripts\PlayerDatabase.cs" />
+     <Compile Include="Assets\Scripts\PlayerLabel.cs" />
+     <Compile Include="Assets\Scripts\PlayerName.cs" />
      <Compile Include="Assets\Scripts\SpawnScript.cs" />
+     <Compile Include="Assets\Scripts\StatDisplay.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{1F70F9E6-1F4E-54D3-C200-66B274649B85}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{35D0DDA9-FE62-9585-0924-16EBBE3E1C3F}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{45B39763-68E3-860A-9231-B32648807668}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+      <Project>{BBE1309F-E184-166B-5232-61FA5E05428D}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

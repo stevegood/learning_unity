@@ -9,6 +9,8 @@ using System.Collections;
 public class BlasterScript : MonoBehaviour {
 
 	public GameObject blasterExplosion;
+	public string team;
+	public string myOriginator;
 
 	private Transform myTransform;
 	private float projectileSpeed = 10;
@@ -33,6 +35,18 @@ public class BlasterScript : MonoBehaviour {
 				Instantiate(blasterExplosion, hit.point, Quaternion.identity);
 				myTransform.renderer.enabled = false;
 				myTransform.light.enabled = false;
+			} else if (hit.transform.tag == "BlueTeamTrigger" || hit.transform.tag == "RedTeamTrigger") {
+				expended = true;
+				Instantiate(blasterExplosion, hit.point, Quaternion.identity);
+				myTransform.renderer.enabled = false;
+				myTransform.light.enabled = false;
+				
+				if ((hit.transform.tag == "BlueTeamTrigger" && team == "red") || (hit.transform.tag == "RedTeamTrigger" && team == "blue")) {
+					HealthAndDamage hdScript = hit.transform.GetComponent<HealthAndDamage>();
+					hdScript.iWasJustAttacked = true;
+					hdScript.myAttacker = myOriginator;
+					hdScript.hitByBlaster = true;
+				}
 			}
 		}
 	}

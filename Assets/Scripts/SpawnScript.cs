@@ -12,6 +12,8 @@ public class SpawnScript : MonoBehaviour {
 	public bool amIOnTheBlueTeam = false;
 	public Transform redTeamPlayer;
 	public Transform blueTeamPlayer;
+	public bool iAmDestroyed = false;
+	public bool firstSpawn = false;
 
 	private bool justConnectedToServer = false;
 	private Rect joinTeamRect;
@@ -35,7 +37,8 @@ public class SpawnScript : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		if (justConnectedToServer) {
+		if (justConnectedToServer || iAmDestroyed) {
+			Screen.lockCursor = false;
 			joinTeamLeftIndent = (Screen.width / 2) - (joinTeamWindowWidth / 2);
 			joinTeamTopIndent = (Screen.height / 2) - (joinTeamWindowHeight / 2);
 			joinTeamRect = new Rect(joinTeamLeftIndent, joinTeamTopIndent, joinTeamWindowWidth, joinTeamWindowHeight);
@@ -48,16 +51,29 @@ public class SpawnScript : MonoBehaviour {
 	}
 
 	void JoinTeamWindow(int windowID) {
-		if (GUILayout.Button ("Join RED Team", GUILayout.Height (buttonHeight))) {
-			amIOnTheRedTeam = true;
-			justConnectedToServer = false;
-			SpawnTeamPlayer("SpawnRedTeam", redTeamPlayer, redTeamGroup);
+		if (justConnectedToServer) {
+			if (GUILayout.Button ("Join RED Team", GUILayout.Height (buttonHeight))) {
+				amIOnTheRedTeam = true;
+				justConnectedToServer = false;
+				SpawnTeamPlayer("SpawnRedTeam", redTeamPlayer, redTeamGroup);
+			}
+			
+			if (GUILayout.Button ("Join BLUE Team", GUILayout.Height (buttonHeight))) {
+				amIOnTheBlueTeam = true;
+				justConnectedToServer = false;
+				SpawnTeamPlayer("SpawnBlueTeam", blueTeamPlayer, blueTeamGroup);
+			}
 		}
 
-		if (GUILayout.Button ("Join BLUE Team", GUILayout.Height (buttonHeight))) {
-			amIOnTheBlueTeam = true;
-			justConnectedToServer = false;
-			SpawnTeamPlayer("SpawnBlueTeam", blueTeamPlayer, blueTeamGroup);
+		if (iAmDestroyed) {
+			if (GUILayout.Button("Respawn", GUILayout.Height(buttonHeight*2))) {
+				if (amIOnTheRedTeam) {
+					SpawnTeamPlayer("SpawnRedTeam", redTeamPlayer, redTeamGroup);
+				} else {
+					SpawnTeamPlayer("SpawnBlueTeam", blueTeamPlayer, blueTeamGroup);
+				}
+				iAmDestroyed = false;
+			}
 		}
 	}
 
@@ -65,5 +81,6 @@ public class SpawnScript : MonoBehaviour {
 		GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag(tag);
 		GameObject randomSpawn = spawnPoints[Random.Range (0, spawnPoints.Length)];
 		Network.Instantiate(player, randomSpawn.transform.position, randomSpawn.transform.rotation, group);
+		firstSpawn = true;
 	}
 }
